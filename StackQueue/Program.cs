@@ -9,8 +9,6 @@ Console.WriteLine(stak.ToString());
 Console.WriteLine(stak.Pop());
 Console.WriteLine(stak.Pop());
 Console.WriteLine(stak.Pop());
-Console.WriteLine(stak.Pop());
-
 
 
 Koe koe = new Koe();
@@ -63,11 +61,21 @@ class Stak
 
     public override string ToString()
     {
-        String str = "fra toppen er der følgende i stakken:";
+        String str = "fra toppen er der følgende i stakken: ";
+        bool firstInput = true;
         Node temp = this.top;
         while (temp != null)
         {
-            str = str + ", " + temp.ToString();
+            if (firstInput)
+            {
+                str = str + temp.ToString();
+                firstInput = false;
+            }
+            else
+            {
+                str = str + ", " + temp.ToString();
+            }
+
             temp = temp.next;
         }
 
@@ -138,12 +146,23 @@ class Koe
 
     public override string ToString()
     {
-        String str = "Køen er følgende:";
+        String str = "Køen er følgende: ";
+        bool firstInput = true;
         Node temp = this.head;
         while (temp != null)
         {
-            str = str + ", " +  temp.ToString();
+            if (firstInput)
+            {
+                str = str + temp.ToString();
+                firstInput = false;
+            }
+            else
+            {
+                str = str + ", " + temp.ToString();
+            }
+            
             temp = temp.next;
+
         }
 
         return str;
